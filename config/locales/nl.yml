@@ -1,0 +1,21 @@
+nl:
+  plugins:
+    variants:
+      title: Variants
+  admin:
+    variants:
+      actions:
+        create_new: Maak een nieuwe Variant
+        reorder: Wijzig de volgorde van de Variants
+        reorder_done: Klaar met het wijzingen van de volgorde van de Variants
+      records:
+        title: Variants
+        sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+        no_items_yet: Er zijn nog geen Variants. Druk op 'Maak een nieuwe Variant' om de eerste aan te maken.
+      variant:
+        view_live_html: Bekijk deze variant op de website <br/><em>(opent een nieuw venster)</em>
+        edit: Bewerk deze variant
+        delete: Verwijder deze variant voor eeuwig
+  variants:
+    show:
+      other: Andere Variants

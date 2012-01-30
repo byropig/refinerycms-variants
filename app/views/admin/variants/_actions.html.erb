@@ -1,0 +1,28 @@
+<ul>
+  <% if Admin::VariantsController.searchable? %>
+    <li>
+      <%= render :partial => "/shared/admin/search",
+                  :locals => {
+                    :url => admin_variants_path
+                  } %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), new_admin_variant_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? and Admin::VariantsController.sortable? and Variant.count > 1 %>
+  <li>
+    <%= link_to t('.reorder', :what => "Variants"),
+                 admin_variants_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Variants"),
+                 admin_variants_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

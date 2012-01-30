@@ -1,0 +1,25 @@
+en:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    variants:
+      title: Variants
+  admin:
+    variants:
+      actions:
+        create_new: Add New Variant
+        reorder: Reorder Variants
+        reorder_done: Done Reordering Variants
+      records:
+        title: Variants
+        sorry_no_results: Sorry! There are no results found.
+        no_items_yet: There are no Variants yet. Click "Add New Variant" to add your first variant.
+      variant:
+        view_live_html: View this variant live <br/><em>(opens in a new window)</em>
+        edit: Edit this variant
+        delete: Remove this variant forever
+  variants:
+    show:
+      other: Other Variants

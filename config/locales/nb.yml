@@ -1,0 +1,21 @@
+nb:
+  plugins:
+    variants:
+      title: Variants
+  admin:
+    variants:
+      actions:
+        create_new: Lag en ny Variant
+        reorder: Endre rekkefølgen på Variants
+        reorder_done: Ferdig å endre rekkefølgen Variants
+      records:
+        title: Variants
+        sorry_no_results: Beklager! Vi fant ikke noen resultater.
+        no_items_yet: Det er ingen Variants enda. Klikk på "Lag en ny Variant" for å legge til din første variant.
+      variant:
+        view_live_html: Vis hvordan denne variant ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+        edit: Rediger denne variant
+        delete: Fjern denne variant permanent
+  variants:
+    show:
+      other: Andre Variants

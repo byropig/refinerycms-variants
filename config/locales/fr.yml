@@ -1,0 +1,25 @@
+fr:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    variants:
+      title: Variants
+  admin:
+    variants:
+      actions:
+        create_new: Créer un(e) nouve(au/l/lle) Variant
+        reorder: Réordonner les Variants
+        reorder_done: Fin de réordonnancement des Variants
+      records:
+        title: Variants
+        sorry_no_results: "Désolé ! Aucun résultat."
+        no_items_yet: 'Il n''y a actuellement aucun(e) Variant. Cliquer sur "Créer un(e) nouve(au/l/lle) Variant" pour créer votre premi(er/ère) variant.'
+      variant:
+        view_live_html: Voir ce(t/tte) variant <br/><em>(Ouvre une nouvelle fenêtre)</em>
+        edit: Modifier ce(t/tte) variant
+        delete: Supprimer définitivement ce(t/tte) variant
+  variants:
+    show:
+      other: Autres Variants

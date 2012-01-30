@@ -1,0 +1,25 @@
+lolcat:
+  shared:
+    admin:
+      image_picker:
+        image: IMAGE
+  plugins:
+    variants:
+      title: Variants
+  admin:
+    variants:
+      actions:
+        create_new: CREATE NEW Variant
+        reorder: REORDR Variants
+        reorder_done: DUN REORDERIN Variants
+      records:
+        title: Variants
+        sorry_no_results: SRY! THAR R NO RESULTS FINDZ.
+        no_items_yet: THAR R NO Variants YET. CLICK "CREATE NEW Variant" 2 ADD UR FURST variant.
+      variant:
+        view_live_html: VIEW DIS variant LIV <BR/><EM>(OPENS IN NEW WINDOW)</EM>
+        edit: EDIT DIS variant
+        delete: REMOOV DIS variant FOREVR
+  variants:
+    show:
+      other: OTHR Variants

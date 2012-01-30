@@ -1,0 +1,44 @@
+<%= form_for [:admin, @variant] do |f| -%>
+  <%= render :partial => "/shared/admin/error_messages", :locals => {
+          :object => @variant,
+          :include_object_name => true
+        } %>
+  
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest'  -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :product_id -%>
+	<%= f.collection_select :product_id, Product.order(:name), :id, :name, :prompt => "-- Select --"  -%>		
+  </div>
+  
+  <div class='field'>
+    <%= f.label :image -%>
+    <%= render :partial => "/shared/admin/image_picker", :locals => {
+          :f => f,
+          :field => :image_id,
+          :image => @variant.image,
+          :toggle_image_display => false
+        } %>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :price -%>
+    <%= f.text_field :price  -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :stock_code -%>
+    <%= f.text_field :stock_code  -%>
+  </div>
+  
+  <%= render :partial => "/shared/admin/form_actions",
+              :locals => {
+                :f => f,
+                :continue_editing => false,
+                :delete_title => t('delete', :scope => 'admin.variants.variant'),
+                :delete_confirmation => t('message', :scope => 'shared.admin.delete', :title => @variant.name)
+              } %>
+<% end -%>
