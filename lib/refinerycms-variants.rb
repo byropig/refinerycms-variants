@@ -21,6 +21,11 @@ module Refinery
       #  Product.class_eval { has_many :variants }
       #end
 
+      config.to_prepare do
+        LineItem.class_eval { belongs_to :variant}
+        Product.class_eval { has_many :variants }
+      end
+
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
           plugin.name = "variants"
@@ -34,6 +39,3 @@ module Refinery
     end
   end
 end
-
-LineItem.class_eval { belongs_to :variant}
-Product.class_eval { has_many :variants }
