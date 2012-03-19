@@ -15,15 +15,13 @@ module Refinery
         app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
       end
 
-      # LineItem is found in the products gem which this gem relies on
-      #initializer "inject relationships" do
-      #  LineItem.class_eval { belongs_to :variant}
-      #  Product.class_eval { has_many :variants }
-      #end
+      config.to_prepare do
+        Product.send :include, Refinery::Banners::Extensions::Page
+      end
 
       config.to_prepare do
-        LineItem.class_eval { belongs_to :variant}
-        Product.class_eval { has_many :variants }
+        LineItem.send :include, Refinery::Variants::LineItemExtender
+        Product.send :include, Refinery::Variants::ProductExtender
       end
 
       config.after_initialize do
@@ -34,6 +32,38 @@ module Refinery
             :class => Variant,
             :title => 'name'
           }
+        end
+      end
+    end
+  end
+end
+
+module Refinery
+  module Variants
+    module ProductExtender
+      def self.included(model)
+        model.send :include, MethodsToCall
+      end
+
+      module MethodsToCall
+        def self.included(m)
+          m.has_many :variants
+        end
+      end
+    end
+  end
+end
+
+module Refinery
+  module Variants
+    module LineItemExtender
+      def self.included(model)
+        model.send :include, MethodsToCall
+      end
+
+      module MethodsToCall
+        def self.included(m)
+          m.belongs_to :variant
         end
       end
     end
