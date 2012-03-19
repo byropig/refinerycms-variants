@@ -10,7 +10,7 @@ class Variant < ActiveRecord::Base
   
   delegate :url, :to => :image, :prefix => true
   
-  def name_and_price    
+  def name_and_price
     name + " - R" + price.to_i.to_s
   end
 end

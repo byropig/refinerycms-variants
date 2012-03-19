@@ -1,10 +1,31 @@
-# Variants engine for Refinery CMS.
+# Refinery CMS Product Variants
 
-## How to build this engine as a gem
+Product variants for your [Refinery CMS](http://refinerycms.com) website, that is making use of the following gem:
 
-    cd vendor/engines/variants
-    gem build refinerycms-variants.gemspec
-    gem install refinerycms-variants.gem
-    
-    # Sign up for a http://rubygems.org/ account and publish the gem
-    gem push refinerycms-variants.gem
++ Products - https://github.com/julesce/refinerycms-products (1.0)
+
+This version of `refinerycms-variants` supports Rails 3.0.x.
+
+## Requirements
+
+Refinery CMS version 1.0.x.
+
+## Install
+
+Make sure that the [products](https://github.com/julesce/refinerycms-products) gem has been installed.
+
+Open up your ``Gemfile`` and add the following:
+
+    gem 'refinerycms-variants', '~> 1.0.0'
+
+Now, run:
+
+    bundle install
+
+Next, run:
+
+    rails generate refinerycms_variants
+
+Migrate your database:
+
+    rake db:migrate

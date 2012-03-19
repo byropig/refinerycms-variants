@@ -21,9 +21,9 @@ class CreateVariants < ActiveRecord::Migration
       UserPlugin.destroy_all({:name => "variants"})
     end
 
-    if defined?(Page)
-      Page.delete_all({:link_url => "/variants"})
-    end
+    #if defined?(Page)
+    #  Page.delete_all({:link_url => "/variants"})
+    #end
 
     drop_table :variants
   end
