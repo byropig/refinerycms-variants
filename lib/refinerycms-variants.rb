@@ -3,9 +3,6 @@ require 'refinerycms-base'
 module Refinery
   module Variants
 
-    LineItem.class_eval { belongs_to :variant}
-    Product.class_eval { has_many :variants }
-
     class << self
       attr_accessor :root
       def root
@@ -37,3 +34,6 @@ module Refinery
     end
   end
 end
+
+LineItem.class_eval { belongs_to :variant}
+Product.class_eval { has_many :variants }
