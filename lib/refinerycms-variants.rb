@@ -3,6 +3,9 @@ require 'refinerycms-base'
 module Refinery
   module Variants
 
+    LineItem.class_eval { belongs_to :variant}
+    Product.class_eval { has_many :variants }
+
     class << self
       attr_accessor :root
       def root
@@ -16,10 +19,10 @@ module Refinery
       end
 
       # LineItem is found in the products gem which this gem relies on
-      initializer "inject relationships" do
-        LineItem.class_eval { belongs_to :variant}
-        Product.class_eval { has_many :variants }
-      end
+      #initializer "inject relationships" do
+      #  LineItem.class_eval { belongs_to :variant}
+      #  Product.class_eval { has_many :variants }
+      #end
 
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
