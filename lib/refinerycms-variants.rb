@@ -47,6 +47,11 @@ module Refinery
       config.to_prepare do
         LineItem.send :include, Refinery::Variants::LineItemExtender
         Product.send :include, Refinery::Variants::ProductExtender
+
+        Product.class_eval do
+          has_many :variants
+        end
+
       end
 
       initializer "static assets" do |app|
