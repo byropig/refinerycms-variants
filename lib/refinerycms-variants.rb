@@ -16,10 +16,6 @@ module Refinery
       end
 
       config.to_prepare do
-        Product.send :include, Refinery::Banners::Extensions::Page
-      end
-
-      config.to_prepare do
         LineItem.send :include, Refinery::Variants::LineItemExtender
         Product.send :include, Refinery::Variants::ProductExtender
       end
