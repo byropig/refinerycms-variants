@@ -16,8 +16,9 @@ module Refinery
       end
 
       # LineItem is found in the products gem which this gem relies on
-      initializer "add variants to line items" do
+      initializer "inject relationships" do
         LineItem.class_eval { belongs_to :variant}
+        Product.class_eval { has_many :variants }
       end
 
       config.after_initialize do
