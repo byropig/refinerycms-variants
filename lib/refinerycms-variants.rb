@@ -2,38 +2,6 @@ require 'refinerycms-base'
 
 module Refinery
   module Variants
-    module ProductExtender
-      def self.included(model)
-        model.send :include, MethodsToCall
-      end
-
-      module MethodsToCall
-        def self.included(m)
-          m.has_many :variants
-        end
-      end
-    end
-  end
-end
-
-module Refinery
-  module Variants
-    module LineItemExtender
-      def self.included(model)
-        model.send :include, MethodsToCall
-      end
-
-      module MethodsToCall
-        def self.included(m)
-          m.belongs_to :variant
-        end
-      end
-    end
-  end
-end
-
-module Refinery
-  module Variants
 
     class << self
       attr_accessor :root
@@ -44,12 +12,17 @@ module Refinery
 
     class Engine < Rails::Engine
 
+      # Lets inject our relationship into Product and LineItem classes
       config.to_prepare do
-        LineItem.send :include, Refinery::Variants::LineItemExtender
-        Product.send :include, Refinery::Variants::ProductExtender
 
         Product.class_eval do
-          has_many :variants
+          require 'variant'
+          self.has_many :variants
+        end
+
+        LineItem.class_eval do
+          require 'variant'
+          self.belongs_to :variant
         end
 
       end
